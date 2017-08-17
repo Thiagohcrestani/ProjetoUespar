@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/08/02 21:18:43.000.340,=C:\Users\thiag\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 21:19:29.000.148,C:\Users\thiag\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Documentos\Projetos Uespar\Fontes\U_Modelo.pas</Transaction>
+    <Transaction>2017/08/02 21:19:29.000.148,C:\Users\thiag\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Documentos\Projetos Uespar\Fontes\U_Modelo.dfm</Transaction>
+    <Transaction>2017/08/02 21:20:05.000.000,C:\Users\thiag\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Documentos\Projetos Uespar\Fontes\ProjetoUespar.dproj</Transaction>
+    <Transaction>2017/08/02 22:19:00.000.661,=C:\Documentos\Projetos Uespar\Fontes\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 22:19:31.000.530,C:\Documentos\Projetos Uespar\Fontes\U_Estado.pas=C:\Documentos\Projetos Uespar\Fontes\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 22:19:31.000.530,C:\Documentos\Projetos Uespar\Fontes\U_Estado.dfm=C:\Documentos\Projetos Uespar\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2017/08/02 22:20:04.000.378,=C:\Documentos\Projetos Uespar\Fontes\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 22:20:51.000.146,C:\Documentos\Projetos Uespar\Fontes\U_Cidade.dfm=C:\Documentos\Projetos Uespar\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2017/08/02 22:20:51.000.146,C:\Documentos\Projetos Uespar\Fontes\U_Cidade.pas=C:\Documentos\Projetos Uespar\Fontes\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 22:21:29.000.628,=C:\Documentos\Projetos Uespar\Fontes\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 22:22:13.000.212,C:\Documentos\Projetos Uespar\Fontes\U_Principal.dfm=C:\Documentos\Projetos Uespar\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2017/08/02 22:22:13.000.212,C:\Documentos\Projetos Uespar\Fontes\U_Principal.pas=C:\Documentos\Projetos Uespar\Fontes\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
