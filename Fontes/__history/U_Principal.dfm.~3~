@@ -18,7 +18,7 @@ object F_Principal: TF_Principal
     Left = 344
     Top = 208
     object Cadastros1: TMenuItem
-      Caption = 'Cadastros1'
+      Caption = 'Cadastros'
       object Estado1: TMenuItem
         Caption = 'Estado'
         OnClick = Estado1Click
