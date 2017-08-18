@@ -193,19 +193,20 @@ object F_Modelo: TF_Modelo
   end
   object PageControl1: TPageControl
     Left = 0
-    Top = 47
+    Top = 36
     Width = 616
-    Height = 362
-    ActivePage = TabSheet2
+    Height = 373
+    ActivePage = TabSheet1
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = 'Cadastro'
-      ExplicitLeft = 0
-      ExplicitTop = 22
+      ExplicitTop = 0
+      ExplicitHeight = 369
     end
     object TabSheet2: TTabSheet
       Caption = 'Consulta'
       ImageIndex = 1
+      ExplicitHeight = 334
       object GroupBox2: TGroupBox
         Left = 3
         Top = 159

@@ -51,7 +51,7 @@ end;
 
 procedure TF_Principal.Clientes1Click(Sender: TObject);
 begin
-F_Clientes.ShowModal;
+  F_Clientes.ShowModal;
 end;
 
 procedure TF_Principal.Estado1Click(Sender: TObject);
@@ -61,7 +61,7 @@ end;
 
 procedure TF_Principal.Produtos1Click(Sender: TObject);
 begin
-F_Produtos.ShowModal;
+  F_Produtos.ShowModal;
 end;
 
 end.
