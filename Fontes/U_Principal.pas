@@ -3,8 +3,10 @@ unit U_Principal;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.Imaging.jpeg,
+  Vcl.ExtCtrls;
 
 type
   TF_Principal = class(TForm)
@@ -13,7 +15,19 @@ type
     Estado1: TMenuItem;
     Cidade1: TMenuItem;
     Clientes1: TMenuItem;
+    Produtos1: TMenuItem;
+    Venda1: TMenuItem;
+    EntradasdeProdutos1: TMenuItem;
+    Relatrios1: TMenuItem;
+    Produtos2: TMenuItem;
+    Clientes2: TMenuItem;
+    Vendas1: TMenuItem;
+    Estoque1: TMenuItem;
+    Image1: TImage;
     procedure Estado1Click(Sender: TObject);
+    procedure Cidade1Click(Sender: TObject);
+    procedure Clientes1Click(Sender: TObject);
+    procedure Produtos1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,11 +41,27 @@ implementation
 
 {$R *.dfm}
 
-uses U_Cidade, U_Estado, U_Modelo;
+uses U_Cidade, U_Estado, U_Modelo, U_Clientes, U_Produtos;
+
+procedure TF_Principal.Cidade1Click(Sender: TObject);
+begin
+  F_Cidade.ShowModal;
+
+end;
+
+procedure TF_Principal.Clientes1Click(Sender: TObject);
+begin
+F_Clientes.ShowModal;
+end;
 
 procedure TF_Principal.Estado1Click(Sender: TObject);
 begin
-F_Estado.ShowModal;
+  F_Estado.ShowModal;
+end;
+
+procedure TF_Principal.Produtos1Click(Sender: TObject);
+begin
+F_Produtos.ShowModal;
 end;
 
 end.

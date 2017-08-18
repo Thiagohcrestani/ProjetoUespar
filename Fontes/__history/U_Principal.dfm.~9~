@@ -1,0 +1,70 @@
+object F_Principal: TF_Principal
+  Left = 0
+  Top = 0
+  Caption = 'Menu Principal'
+  ClientHeight = 546
+  ClientWidth = 777
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object MainMenu1: TMainMenu
+    Left = 104
+    Top = 192
+    object Cadastros1: TMenuItem
+      Bitmap.Data = {
+        F6000000424DF600000000000000760000002800000010000000100000000100
+        04000000000080000000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555553555
+        555555555555B57555555555553507075555555555B570007555555535070000
+        07555555B57000000075553507000000080555B57000070085B3350700000008
+        0555B57000070085B35507000070080555558000070085B35555580000080555
+        555555800085B35555555558080555555555555585B355555555}
+      Caption = '&Cadastros'
+      object Estado1: TMenuItem
+        Caption = 'Estado'
+        OnClick = Estado1Click
+      end
+      object Cidade1: TMenuItem
+        Caption = 'Cidade'
+        OnClick = Cidade1Click
+      end
+      object Clientes1: TMenuItem
+        Caption = 'Clientes'
+        OnClick = Clientes1Click
+      end
+      object Produtos1: TMenuItem
+        Caption = 'Produtos'
+        OnClick = Produtos1Click
+      end
+    end
+    object Venda1: TMenuItem
+      Caption = '&Venda'
+    end
+    object EntradasdeProdutos1: TMenuItem
+      Caption = '&Entradas de Produtos'
+    end
+    object Relatrios1: TMenuItem
+      Caption = '&Relat'#243'rios'
+      object Produtos2: TMenuItem
+        Caption = 'Produtos'
+      end
+      object Clientes2: TMenuItem
+        Caption = 'Clientes'
+      end
+      object Vendas1: TMenuItem
+        Caption = 'Vendas'
+      end
+      object Estoque1: TMenuItem
+        Caption = 'Estoque'
+      end
+    end
+  end
+end

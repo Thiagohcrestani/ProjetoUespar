@@ -1,0 +1,27 @@
+program ProjetoUespar;
+
+uses
+  Vcl.Forms,
+  U_Modelo in 'U_Modelo.pas' {F_Modelo},
+  U_Estado in 'U_Estado.pas' {F_Estado},
+  U_Cidade in 'U_Cidade.pas' {F_Cidade},
+  U_Principal in 'U_Principal.pas' {F_Principal},
+  U_Produtos in 'U_Produtos.pas' {F_Produtos},
+  U_Clientes in 'U_Clientes.pas' {F_Clientes},
+  Vcl.Themes,
+  Vcl.Styles;
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Ruby Graphite');
+  Application.CreateForm(TF_Principal, F_Principal);
+  Application.CreateForm(TF_Modelo, F_Modelo);
+  Application.CreateForm(TF_Estado, F_Estado);
+  Application.CreateForm(TF_Cidade, F_Cidade);
+  Application.CreateForm(TF_Produtos, F_Produtos);
+  Application.CreateForm(TF_Clientes, F_Clientes);
+  Application.Run;
+end.
