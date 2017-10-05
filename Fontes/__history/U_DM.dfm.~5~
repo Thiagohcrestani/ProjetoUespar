@@ -1,0 +1,27 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 569
+  Width = 803
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=C:\Documentos\Projetos Uespar\BancoDados\BD.GDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'DriverID=IB')
+    Connected = True
+    Left = 56
+    Top = 40
+  end
+  object FDQESTADO: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT *FROM ESTADO')
+    Left = 144
+    Top = 40
+  end
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    Left = 304
+    Top = 168
+  end
+end

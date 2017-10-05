@@ -18,7 +18,10 @@
     <Transaction>2017/08/17 21:20:17.000.096,C:\Documentos\Projetos Uespar\Fontes\Unit1.dfm=C:\Documentos\Projetos Uespar\Fontes\U_Produtos.dfm</Transaction>
     <Transaction>2017/08/17 21:20:17.000.096,C:\Documentos\Projetos Uespar\Fontes\Unit1.pas=C:\Documentos\Projetos Uespar\Fontes\U_Produtos.pas</Transaction>
     <Transaction>2017/08/17 21:22:41.000.760,=C:\Documentos\Projetos Uespar\Fontes\Unit1.pas</Transaction>
-    <Transaction>2017/08/17 21:23:35.000.773,C:\Documentos\Projetos Uespar\Fontes\Unit1.pas=C:\Documentos\Projetos Uespar\Fontes\U_Clientes.pas</Transaction>
     <Transaction>2017/08/17 21:23:35.000.773,C:\Documentos\Projetos Uespar\Fontes\Unit1.dfm=C:\Documentos\Projetos Uespar\Fontes\U_Clientes.dfm</Transaction>
+    <Transaction>2017/08/17 21:23:35.000.773,C:\Documentos\Projetos Uespar\Fontes\Unit1.pas=C:\Documentos\Projetos Uespar\Fontes\U_Clientes.pas</Transaction>
+    <Transaction>2017/09/06 19:34:52.000.858,=C:\Documentos\Projetos Uespar\Fontes\Unit1.pas</Transaction>
+    <Transaction>2017/09/06 19:37:26.000.000,C:\Documentos\Projetos Uespar\Fontes\U_DM.dfm=C:\Documentos\Projetos Uespar\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2017/09/06 19:37:26.000.000,C:\Documentos\Projetos Uespar\Fontes\U_DM.pas=C:\Documentos\Projetos Uespar\Fontes\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

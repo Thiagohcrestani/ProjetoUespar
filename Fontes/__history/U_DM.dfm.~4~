@@ -1,0 +1,40 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 569
+  Width = 803
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=C:\Documentos\Projetos Uespar\BandoDados\BD.GDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'DriverID=IB')
+    Connected = True
+    Left = 56
+    Top = 40
+  end
+  object FDQESTADO: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT *FROM ESTADO')
+    Left = 144
+    Top = 40
+    object FDQESTADOID_ESTADO: TIntegerField
+      FieldName = 'ID_ESTADO'
+      Origin = 'ID_ESTADO'
+      Required = True
+    end
+    object FDQESTADONOME_ESTADO: TStringField
+      FieldName = 'NOME_ESTADO'
+      Origin = 'NOME_ESTADO'
+      Required = True
+      Size = 50
+    end
+    object FDQESTADOSIGLA_ESTADO: TStringField
+      FieldName = 'SIGLA_ESTADO'
+      Origin = 'SIGLA_ESTADO'
+      Required = True
+      FixedChar = True
+      Size = 2
+    end
+  end
+end

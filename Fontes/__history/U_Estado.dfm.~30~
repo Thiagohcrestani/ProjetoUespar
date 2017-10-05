@@ -1,0 +1,130 @@
+inherited F_Estado: TF_Estado
+  Caption = 'Cadastro de Estado'
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    ExplicitTop = 8
+    inherited Spb_Cancelar: TSpeedButton [1]
+    end
+    inherited Spb_Excluir: TSpeedButton [2]
+    end
+    inherited Spb_Editar: TSpeedButton [3]
+    end
+    inherited Spb_Salvar: TSpeedButton [4]
+    end
+  end
+  inherited PageControl1: TPageControl
+    inherited TabSheet1: TTabSheet
+      object Label1: TLabel
+        Left = 0
+        Top = 43
+        Width = 43
+        Height = 13
+        Caption = 'IdEstado'
+      end
+      object Label2: TLabel
+        Left = 3
+        Top = 94
+        Width = 27
+        Height = 13
+        Caption = 'Nome'
+      end
+      object Label3: TLabel
+        Left = 3
+        Top = 145
+        Width = 22
+        Height = 13
+        Caption = 'Sigla'
+      end
+      object Edit1: TEdit
+        Left = 70
+        Top = 40
+        Width = 121
+        Height = 21
+        Enabled = False
+        TabOrder = 0
+      end
+      object Edit2: TEdit
+        Left = 70
+        Top = 91
+        Width = 121
+        Height = 21
+        Enabled = False
+        TabOrder = 1
+      end
+      object Edit3: TEdit
+        Left = 70
+        Top = 142
+        Width = 251
+        Height = 21
+        Enabled = False
+        TabOrder = 2
+      end
+    end
+    inherited TabSheet2: TTabSheet
+      object Edit4: TEdit
+        Left = 41
+        Top = 80
+        Width = 528
+        Height = 21
+        OEMConvert = True
+        TabOrder = 2
+        OnChange = Edit4Change
+      end
+      object DBGrid1: TDBGrid
+        Left = 12
+        Top = 177
+        Width = 581
+        Height = 120
+        DataSource = DataSource1
+        TabOrder = 3
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnDblClick = DBGrid1DblClick
+      end
+    end
+  end
+  object FDQuery1: TFDQuery
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'select * from estado where nome_estado like :Nomeestado')
+    Left = 424
+    Top = 272
+    ParamData = <
+      item
+        Name = 'NOMEESTADO'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 50
+        Value = Null
+      end>
+    object FDQuery1ID_ESTADO: TIntegerField
+      FieldName = 'ID_ESTADO'
+      Origin = 'ID_ESTADO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FDQuery1NOME_ESTADO: TStringField
+      FieldName = 'NOME_ESTADO'
+      Origin = 'NOME_ESTADO'
+      Required = True
+      Size = 50
+    end
+    object FDQuery1SIGLA_ESTADO: TStringField
+      FieldName = 'SIGLA_ESTADO'
+      Origin = 'SIGLA_ESTADO'
+      Required = True
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = FDQuery1
+    Left = 352
+    Top = 272
+  end
+end

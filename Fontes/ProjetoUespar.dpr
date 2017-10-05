@@ -9,7 +9,8 @@ uses
   U_Produtos in 'U_Produtos.pas' {F_Produtos},
   U_Clientes in 'U_Clientes.pas' {F_Clientes},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  U_DM in 'U_DM.pas' {DM: TDataModule};
 
 {$R *.res}
 
@@ -17,6 +18,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Charcoal Dark Slate');
+  Application.CreateForm(TDM, DM);
   Application.CreateForm(TF_Principal, F_Principal);
   Application.CreateForm(TF_Modelo, F_Modelo);
   Application.CreateForm(TF_Estado, F_Estado);

@@ -1,0 +1,143 @@
+unit U_Cidade;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_Modelo, Vcl.ComCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TF_Cidade = class(TF_Modelo)
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    DBGrid1: TDBGrid;
+    FDQuery1: TFDQuery;
+    DataSource1: TDataSource;
+    FDQuery1ID_CIDADE: TIntegerField;
+    FDQuery1NOME_CIDADE: TStringField;
+    FDQuery1CEP_CIDADE: TStringField;
+    FDQuery1ID_ESTADO: TIntegerField;
+    FDQuery2: TFDQuery;
+    FDQuery2MAX: TIntegerField;
+    procedure Spb_NovoClick(Sender: TObject);
+    procedure Spb_SalvarClick(Sender: TObject);
+    procedure Edit5Change(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure Spb_EditarClick(Sender: TObject);
+  private
+    procedure liberacampos;
+    procedure habilitacampos;
+    { Private declarations }
+  public
+    { Public declarations }
+    crud: string;
+  end;
+
+var
+  F_Cidade: TF_Cidade;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TF_Cidade.Spb_EditarClick(Sender: TObject);
+begin
+  inherited;
+  crud:='alterar';
+  habilitacampos;
+end;
+
+procedure TF_Cidade.Spb_NovoClick(Sender: TObject);
+
+begin
+
+  inherited;
+  crud := 'Inserir';
+  liberacampos;
+  Edit1.SetFocus;
+
+end;
+
+procedure TF_Cidade.Spb_SalvarClick(Sender: TObject);
+var
+  sql: string;
+  MAX: INTEGER;
+begin
+  inherited;
+  FDQuery2.Close;
+  FDQuery2.Open();
+  MAX:=FDQuery2MAX.AsInteger+1;
+  Edit1.Text :=FloatToStr (MAX);
+
+  if crud = 'Inserir' then
+  begin
+    sql := 'Insert into cidade values (' + //
+      Edit1.Text + ',' + //
+      QuotedStr(Edit2.Text) + ',' + //
+      QuotedStr(Edit3.Text) + ',' + //
+      Edit4.Text + ')';
+
+  end
+  else if crud = 'alterar' then
+  begin
+    sql := 'update cidade set' + //
+      ' nome_cidade =' + QuotedStr(Edit2.Text) + //
+      ',cep_cidade =' + QuotedStr(Edit3.Text) + //
+      ',id_cidade =' + QuotedStr(Edit1.Text) + //
+      ' where id_estado =' + Edit4.Text;
+  end;
+
+  DM.FDConnection1.ExecSQL(sql);
+  DM.FDConnection1.CommitRetaining;
+end;
+
+procedure TF_Cidade.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+spb_editar.Enabled :=true;
+edit1.Text :=FDQuery1ID_CIDADE.AsString;
+edit2.Text :=FDQuery1NOME_CIDADE.AsString;
+edit3.Text :=FDQuery1CEP_CIDADE.AsString;
+edit4.Text :=FDQuery1ID_ESTADO.AsString;
+TabSheet1.Show;
+end;
+
+procedure TF_Cidade.Edit5Change(Sender: TObject);
+begin
+  inherited;
+  FDQuery1.Close;
+  FDQuery1.ParamByName('NOME_CIDADE').AsString := Edit5.Text + '%';
+  FDQuery1.Open();
+  Edit5.CharCase := ecUpperCase;
+end;
+
+procedure TF_Cidade.liberacampos;
+begin
+  Edit1.Enabled := true;
+  Edit2.Enabled := true;
+  Edit3.Enabled := true;
+  Edit4.Enabled := true;
+end;
+
+procedure TF_Cidade.habilitacampos;
+begin
+  Edit2.Enabled := true;
+  Edit3.Enabled := true;
+  Edit4.Enabled := true;
+end;
+
+end.

@@ -1,0 +1,172 @@
+unit U_Estado;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_Modelo, Vcl.ComCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  TF_Estado = class(TF_Modelo)
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    DBGrid1: TDBGrid;
+    FDQuery1: TFDQuery;
+    FDQuery1ID_ESTADO: TIntegerField;
+    FDQuery1NOME_ESTADO: TStringField;
+    FDQuery1SIGLA_ESTADO: TStringField;
+    DataSource1: TDataSource;
+    Edit4: TEdit;
+    procedure Spb_NovoClick(Sender: TObject);
+    procedure Spb_SalvarClick(Sender: TObject);
+    procedure Spb_CancelarClick(Sender: TObject);
+    procedure Spb_EditarClick(Sender: TObject);
+    procedure Spb_ExcluirClick(Sender: TObject);
+    procedure Edit4Change(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    procedure LIMPACAMPOS;
+    procedure HabilitaCampos;
+    { Private declarations }
+  public
+    { Public declarations }
+    crud: string;
+  end;
+
+var
+  F_Estado: TF_Estado;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TF_Estado.Spb_CancelarClick(Sender: TObject);
+begin
+  inherited;
+  LIMPACAMPOS;
+
+end;
+
+procedure TF_Estado.Spb_EditarClick(Sender: TObject);
+begin
+  inherited;
+  TabSheet1.Show;
+  HabilitaCampos;
+  crud := 'Alterar';
+  Edit2.SetFocus;
+
+end;
+
+procedure TF_Estado.Spb_ExcluirClick(Sender: TObject);
+var
+  sql: string;
+begin
+  inherited;
+  sql := 'delete from estado' + //
+    ' where id_estado =' + Edit1.Text;
+  DM.FDConnection1.ExecSQL(sql);
+  DM.FDConnection1.CommitRetaining;
+
+end;
+
+procedure TF_Estado.LIMPACAMPOS;
+begin
+  Edit1.Text := EmptyStr;
+  Edit2.Text := EmptyStr;
+  Edit3.Text := EmptyStr;
+  crud := EmptyStr;
+  Edit1.Enabled := FALSE;
+  Edit2.Enabled := FALSE;
+  Edit3.Enabled := FALSE;
+end;
+
+procedure TF_Estado.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  Edit1.Text := FDQuery1ID_ESTADO.AsString;
+  Edit2.Text := FDQuery1NOME_ESTADO.AsString;
+  Edit3.Text := FDQuery1SIGLA_ESTADO.AsString;
+  PageControl1.TabIndex := 0;
+  Spb_Excluir.Enabled:=true;
+end;
+
+procedure TF_Estado.Edit4Change(Sender: TObject);
+begin
+  inherited;
+  Edit4.CharCase:=ecUpperCase;
+  FDQuery1.Close;
+  FDQuery1.ParamByName('Nomeestado').AsString := Edit4.Text + '%';
+  FDQuery1.Open();
+end;
+
+procedure TF_Estado.FormShow(Sender: TObject);
+begin
+  inherited;
+TabSheet1.Show;
+end;
+
+procedure TF_Estado.HabilitaCampos;
+begin
+  Edit1.Enabled := False;
+  Edit2.Enabled := True;
+  Edit3.Enabled := True;
+end;
+
+procedure TF_Estado.Spb_NovoClick(Sender: TObject);
+
+begin
+  inherited;
+   TabSheet1.Show;
+  HabilitaCampos;
+  Edit2.SetFocus;
+  crud := 'Inserir';
+
+end;
+
+procedure TF_Estado.Spb_SalvarClick(Sender: TObject);
+var
+  sql: string;
+  max: integer;
+begin
+  inherited;
+
+  if crud = 'Inserir' then
+  begin
+    DM.FDQESTADO.Close;
+    DM.FDQESTADO.Open;
+    max := DM.FDQESTADOMAX.AsInteger + 1;
+    Edit1.Text:=IntToStr(max);
+    sql := 'Insert into estado values (' + //
+      Edit1.Text + ',' + //
+      QuotedStr(Edit2.Text) + ',' + //
+      QuotedStr(Edit3.Text) + ')';
+  end
+  else
+  begin
+    sql := 'UPDATE ESTADO SET' + //
+      ' NOME_ESTADO =' + QuotedStr(Edit2.Text) + //
+      ',SIGLA_ESTADO=' + QuotedStr(Edit3.Text) + //
+      'WHERE ID_ESTADO =' + Edit1.Text;
+    DM.FDConnection1.ExecSQL(sql);
+    DM.FDConnection1.CommitRetaining;
+
+  end;
+  DM.FDConnection1.ExecSQL(sql);
+  DM.FDConnection1.CommitRetaining;
+  LIMPACAMPOS;
+
+end;
+
+end.

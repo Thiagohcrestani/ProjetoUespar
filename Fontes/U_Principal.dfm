@@ -3731,8 +3731,7 @@ object F_Principal: TF_Principal
       F56BF4A93B579EE6EECEA84159108B78836ED8BBAA6A0507AD4DDBDCBB25B0B4
       5145030A28A2803FFFD9}
     Stretch = True
-    ExplicitWidth = 833
-    ExplicitHeight = 545
+    ExplicitLeft = 8
   end
   object MainMenu1: TMainMenu
     Left = 24
